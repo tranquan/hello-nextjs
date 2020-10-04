@@ -1,0 +1,16 @@
+{
+  "importModel": {
+    "prefix": "importM",
+    "body": [
+      "import * as m from '@bokio/shared/services/api/model';"
+    ],
+    "description": "Import the server side models"
+  },
+  "importProxy": {
+    "prefix": "importP",
+    "body": [
+      "import * as proxy from '@bokio/shared/services/api/proxy';"
+    ],
+    "description": "Import the proxy"
+  }
+}

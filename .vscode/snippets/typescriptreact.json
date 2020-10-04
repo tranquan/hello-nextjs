@@ -1,0 +1,129 @@
+{
+	"test": {
+		"prefix": "test",
+		"body": [
+			"import * as React from 'react';",
+			"import { mount } from 'enzyme'",
+			"",
+			"describe('MyComponent', () => {",
+			"  it('should do x when condition y', () => {",
+			"    const root = mount(<MyComponent />);",
+			"    expect(root.find('a').length).toBe(1);",
+			"  });",
+			"});"
+		],
+		"description": "Stubs for component test"
+	},
+	"importModel": {
+		"prefix": "importM",
+		"body": ["import * as m from '@bokio/shared/services/api/model';"],
+		"description": "Import the server side models"
+	},
+	"importProxy": {
+		"prefix": "importP",
+		"body": ["import * as proxy from '@bokio/shared/services/api/proxy';"],
+		"description": "Import the proxy"
+	},
+	"importMocks": {
+		"prefix": "importMocks",
+		"body": ["import * as mocks from '@bokio/test-utils/mocks';"],
+		"description": "Import unit test mocks"
+	},
+	"scene": {
+		"prefix": "scene",
+		"body": [
+			"import * as React from 'react';",
+			"",
+			"import * as m from '@bokio/shared/services/api/model';",
+			"import * as proxy from '@bokio/shared/services/api/proxy';",
+			"",
+			"import Page from '@bokio/elements/Page/Page';",
+			"import { RouteComponentProps } from 'react-router';",
+			"",
+			"interface ${TM_FILENAME_BASE}Props extends RouteComponentProps<{company: string}> {",
+			"}",
+			"",
+			"const ${TM_FILENAME_BASE} = (props: ${TM_FILENAME_BASE}Props) => {",
+			"  return <Page title={'My page'} isLoading={true} />;",
+			"};",
+			"export default ${TM_FILENAME_BASE};"
+		],
+		"description": "Create an empty Bokio scene."
+	},
+	"functionalWithProps": {
+		"prefix": "compf",
+		"body": [
+			"import * as React from \"react\";",
+			"",
+			"interface ${TM_FILENAME_BASE}Props {",
+			"}",
+			"",
+			"export const ${TM_FILENAME_BASE} = ({ }: ${TM_FILENAME_BASE}Props) => {",
+			"  return(",
+			"   <div>${1:}</div>",
+			"  );",
+			"};"
+		],
+		"description": "Create an empty functional component with props interface"
+	},
+	"modal": {
+		"prefix": "modal",
+		"body": [
+			"import * as React from \"react\";",
+			"import { Modal2, ModalContent, ModalFooter } from \"web/components/Modal\";",
+			"import { LoadingProgress } from \"web/elements/Loading\";",
+			"import { SubmitButton } from \"web/elements/Button\";",
+			"",
+			"",
+			"interface ${TM_FILENAME_BASE}Props {",
+			"  visible: boolean;",
+			"  onSuccess: () => void;",
+			"  onCancel: () => void;",
+			"}",
+			"",
+			"export const ${TM_FILENAME_BASE} = (props: ${TM_FILENAME_BASE}Props) => {",
+			"  return(",
+			"   <Modal2 title=\"Title here\" visible={props.visible} onClose={props.onCancel}>",
+			"     <ModalContent>",
+			"     Content here",
+			"     </ModalContent>",
+			"     <LoadingProgress request={submit.request} />",
+			"     <ModalFooter>",
+			"       <SubmitButton onClick={() => submit.post({})} disabled={submit.request.isLoading}>",
+			"         Save action here",
+			"       </SubmitButton>",
+			"     </ModalFooter>",
+			"   </Modal2>",
+			"  );",
+			"};"
+		],
+		"description": "Create an empty functional component with props interface"
+	},
+	"story": {
+		"prefix": "story",
+		"body": [
+			"import { BokioStory } from '@bokio/storybook/BokioStory';",
+			"import * as React from 'react';",
+			"import { action } from '@storybook/addon-actions';",
+			"",
+			"const story = new BokioStory('${1:}', module)",
+			"   .decorateWithProvider()",
+			"   .decorateWithRouter()",
+			"   .decorateWithPaddingForPrimitives();",
+			"",
+			"story.case('Empty state')",
+			"   .addInfo({})",
+			"   .render(() => <MyComponent />);"
+		]
+	},
+	"RenderRequest": {
+		"prefix": "rr",
+		"body": ["<RenderRequest${1:} request={} whenLoading={} whenError={}>", "  {data => null}", "</RenderRequest>"],
+		"description": "create empty RenderRequest component"
+	},
+	"ImportStyles": {
+		"prefix": "is",
+		"body": ["import * as styles from \"./${TM_FILENAME_BASE/(^.)/${1:/downcase}/}.scss\";"],
+		"description": "create empty RenderRequest component"
+	}
+}
